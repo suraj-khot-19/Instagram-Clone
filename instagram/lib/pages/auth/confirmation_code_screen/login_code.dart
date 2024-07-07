@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/pages/save_login_info.dart';
 import 'package:instagram/widgets/custom_button.dart';
 import 'package:instagram/widgets/custom_spacer.dart';
 import 'package:instagram/widgets/custom_text_form_feild.dart';
@@ -127,7 +128,16 @@ class _LoginCodeState extends State<LoginCode> {
                             opacity: 0.5,
                             child: Custombutton(title: "Continue"),
                           )
-                        : const Custombutton(title: "Continue"),
+                        : Custombutton(
+                            title: "Continue",
+                            onTap: () => Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const SaveLoginInfo(),
+                              ),
+                              (route) => false,
+                            ),
+                          ),
                     const AddVerticleSpace(height: 15),
                     const Custombutton(
                       title: "Try Another Way",
