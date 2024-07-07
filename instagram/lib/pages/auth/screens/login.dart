@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/pages/auth/confirmation_code_screen/login_code.dart';
 import 'package:instagram/pages/auth/screens/mobile.dart';
 import 'package:instagram/utils/color_grediants.dart';
 import 'package:instagram/widgets/custom_button.dart';
@@ -53,8 +54,12 @@ class _LoginState extends State<Login> {
                   Customtextformfeild(
                       controller: passwordController, hintText: "Password"),
                   const AddVerticleSpace(height: 16),
-                  const Custombutton(
+                  Custombutton(
                     title: "Log In",
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginCode())),
                   ),
                   const AddVerticleSpace(height: 16),
                   const Text(

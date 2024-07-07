@@ -4,8 +4,13 @@ class Custombutton extends StatelessWidget {
   final String title;
   final bool isBorder;
   final VoidCallback? onTap;
+  final bool isWhite;
   const Custombutton(
-      {super.key, required this.title, this.isBorder = false, this.onTap});
+      {super.key,
+      required this.title,
+      this.isBorder = false,
+      this.onTap,
+      this.isWhite = false});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +25,9 @@ class Custombutton extends StatelessWidget {
           borderRadius: BorderRadius.circular(50),
           border: isBorder
               ? Border.all(
-                  color: const Color.fromARGB(255, 0, 140, 255),
+                  color: isWhite
+                      ? Colors.grey
+                      : const Color.fromARGB(255, 0, 140, 255),
                 )
               : null,
         ),

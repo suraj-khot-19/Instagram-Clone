@@ -7,13 +7,13 @@ class CustomInstaLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 80,
-      width: 75,
+      width: 80,
       decoration: BoxDecoration(
         color: Colors.transparent,
         borderRadius: BorderRadius.circular(15),
         image: const DecorationImage(
           image: AssetImage(
-            "assets/insta.jpg",
+            "assets/insta.png",
           ),
           fit: BoxFit.cover,
         ),

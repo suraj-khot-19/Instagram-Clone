@@ -3,14 +3,19 @@ import 'package:flutter/material.dart';
 class Customtextformfeild extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
+  final bool isWhite;
   const Customtextformfeild(
-      {super.key, required this.controller, required this.hintText});
+      {super.key,
+      required this.controller,
+      required this.hintText,
+      this.isWhite = false});
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      style:
-          const TextStyle(color: Colors.white70, fontWeight: FontWeight.w500),
+      style: TextStyle(
+          color: isWhite ? Colors.black45 : Colors.white70,
+          fontWeight: FontWeight.w500),
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
@@ -18,26 +23,29 @@ class Customtextformfeild extends StatelessWidget {
           fontWeight: FontWeight.bold,
           color: Colors.grey.shade700,
         ),
-        focusedBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
           borderSide: BorderSide(
             width: 1,
-            color: Color.fromARGB(255, 0, 90, 135),
+            color:
+                isWhite ? Colors.grey : const Color.fromARGB(255, 0, 90, 135),
           ),
         ),
-        enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(
+        enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(
             Radius.circular(10),
           ),
           borderSide: BorderSide(
             width: 1,
-            color: Color.fromARGB(255, 0, 90, 135),
+            color:
+                isWhite ? Colors.grey : const Color.fromARGB(255, 0, 90, 135),
           ),
         ),
         filled: true,
-        fillColor: const Color.fromARGB(255, 6, 38, 53),
+        fillColor:
+            isWhite ? Colors.white70 : const Color.fromARGB(255, 6, 38, 53),
       ),
     );
   }
