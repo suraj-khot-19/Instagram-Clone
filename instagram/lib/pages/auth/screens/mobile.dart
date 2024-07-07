@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/pages/auth/email.dart';
+import 'package:instagram/pages/auth/confirmation_code_screen/mobile_code.dart';
+import 'package:instagram/pages/auth/screens/email.dart';
 import 'package:instagram/utils/color_grediants.dart';
 import 'package:instagram/widgets/custom_button.dart';
 import 'package:instagram/widgets/custom_spacer.dart';
@@ -75,7 +76,18 @@ class _MobileState extends State<Mobile> {
                         fontWeight: FontWeight.w600),
                   ),
                   const AddVerticleSpace(height: 20),
-                  const Custombutton(title: "Next"),
+                  Custombutton(
+                    title: "Next",
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MobileCode(
+                              mob: mobileController.text,
+                            ),
+                          ));
+                    },
+                  ),
                   const AddVerticleSpace(height: 20),
                   Custombutton(
                     title: "Sign up with email address",

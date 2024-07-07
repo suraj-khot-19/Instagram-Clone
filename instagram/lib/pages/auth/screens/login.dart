@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/pages/auth/mobile.dart';
+import 'package:instagram/pages/auth/screens/mobile.dart';
 import 'package:instagram/utils/color_grediants.dart';
 import 'package:instagram/widgets/custom_button.dart';
 import 'package:instagram/widgets/custom_insta_logo.dart';

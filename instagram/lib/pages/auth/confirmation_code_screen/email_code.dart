@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/pages/auth/login.dart';
 import 'package:instagram/utils/color_grediants.dart';
 import 'package:instagram/widgets/custom_button.dart';
 import 'package:instagram/widgets/custom_spacer.dart';
 import 'package:instagram/widgets/custom_text_form_feild.dart';
 
-class Email extends StatefulWidget {
-  const Email({super.key});
+class EmailCode extends StatefulWidget {
+  final String email;
+  const EmailCode({super.key, required this.email});
 
   @override
-  State<Email> createState() => _EmailState();
+  State<EmailCode> createState() => _EmailCodeState();
 }
 
-class _EmailState extends State<Email> {
-  TextEditingController emailController = TextEditingController();
+class _EmailCodeState extends State<EmailCode> {
+  TextEditingController code = TextEditingController();
   @override
   void dispose() {
-    emailController.dispose();
+    code.dispose();
     super.dispose();
   }
 
@@ -33,7 +33,10 @@ class _EmailState extends State<Email> {
               top: 40,
               left: 20,
               child: InkWell(
-                onTap: () => Navigator.pop(context),
+                onTap: () {
+                  code.clear();
+                  Navigator.pop(context);
+                },
                 child: const Icon(
                   Icons.arrow_back_ios,
                   color: Colors.white,
@@ -47,50 +50,45 @@ class _EmailState extends State<Email> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Text(
-                    "What's your email address?",
+                    "Enter the confirmation code",
                     style: TextStyle(
                         fontSize: 23,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
                   ),
                   const AddVerticleSpace(height: 8),
-                  const Text(
-                    "Enter the email address at which you can be contacted. No one will see this on yyour profile.",
-                    style: TextStyle(
+                  Text(
+                    "To confirm your account, enter the 6-degit code. that we sent to ${widget.email}",
+                    style: const TextStyle(
                         fontSize: 14,
                         color: Colors.white70,
                         fontWeight: FontWeight.w600),
                   ),
                   const AddVerticleSpace(height: 20),
                   Customtextformfeild(
-                    controller: emailController,
-                    hintText: "Email address",
+                    controller: code,
+                    hintText: "Confirmation code",
                   ),
                   const AddVerticleSpace(height: 20),
-                  const Custombutton(title: "Next"),
+                  const Custombutton(
+                    title: "Next",
+                  ),
                   const AddVerticleSpace(height: 20),
                   Custombutton(
-                    title: "Sign up with Mobile Number",
+                    title: "I didn't receive the code",
                     isBorder: true,
-                    onTap: () => Navigator.pop(context),
-                  ),
-                  const Spacer(),
-                  Center(
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            emailController.clear();
-                            return const Login();
-                          },
-                        ));
-                      },
-                      child: const Text(
-                        "I already have an account",
-                        style: TextStyle(color: Colors.blue),
-                      ),
-                    ),
-                  ),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(20),
+                              topRight: Radius.circular(20),
+                            ),
+                          ),
+                          content: Text(
+                              "Please check in spam folder or check email once")));
+                    },
+                  )
                 ],
               ),
             )
