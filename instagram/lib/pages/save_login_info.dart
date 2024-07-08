@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:instagram/pages/home/screen/home.dart';
+import 'package:instagram/pages/bottom_nav.dart';
 import 'package:instagram/widgets/custom_button.dart';
 import 'package:instagram/widgets/custom_spacer.dart';
 
@@ -76,7 +75,7 @@ class _SaveLoginInfoState extends State<SaveLoginInfo> {
                   onTap: () => Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Home(),
+                      builder: (context) => const BottomNav(),
                     ),
                     (route) => false,
                   ),
@@ -89,7 +88,7 @@ class _SaveLoginInfoState extends State<SaveLoginInfo> {
                   onTap: () => Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Home(),
+                      builder: (context) => const BottomNav(),
                     ),
                     (route) => false,
                   ),
