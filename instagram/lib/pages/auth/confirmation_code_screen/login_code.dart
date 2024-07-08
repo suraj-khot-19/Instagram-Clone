@@ -123,21 +123,16 @@ class _LoginCodeState extends State<LoginCode> {
                       ],
                     ),
                     const AddVerticleSpace(height: 15),
-                    code.text.isEmpty
-                        ? const Opacity(
-                            opacity: 0.5,
-                            child: Custombutton(title: "Continue"),
-                          )
-                        : Custombutton(
-                            title: "Continue",
-                            onTap: () => Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SaveLoginInfo(),
-                              ),
-                              (route) => false,
-                            ),
-                          ),
+                    Custombutton(
+                      title: "Continue",
+                      onTap: () => Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SaveLoginInfo(),
+                        ),
+                        (route) => false,
+                      ),
+                    ),
                     const AddVerticleSpace(height: 15),
                     const Custombutton(
                       title: "Try Another Way",
